@@ -14,14 +14,23 @@ function newItem() {
     li.append(inputValue);
     
       
-    
+    //variable for click event strike-thru
    let crossOut = li.on('dblclick', function() {
     li.toggleClass('strike');
 });
-let crossOutButton = $(crossOutButton); 
+//add X button to li elements
+let crossOutButton = $('<crossOutButton></crossOutButton>');
+crossOutButton.append(document.createTextNode('X'));
 li.append(crossOutButton);
 
+//add delete/remove functionality to X button
+crossOutButton.on('click', removeItem); 
+    function removeItem() {
+        li.addClass('delete');
+    }
 }
+
+
 
 
 
